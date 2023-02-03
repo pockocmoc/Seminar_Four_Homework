@@ -1,39 +1,37 @@
+import java.util.Scanner;
+
 public class Main {
-
-
-    public static void printArray(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
     public static void main(String[] args) {
-        int[][] matrix = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, -1, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, -1, 0, 0, 0, 20, 0, 0},
-                {0, 0, 0, -1, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, -1, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, -1, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+        int[][] matrix = {
+                {1, 0, 1, 1, 1},
+                {1, 0, 1, 0, 1},
+                {1, 1, 1, 0, 1},
+                {0, 0, 0, 0, 1},
+                {1, 1, 1, 0, 1},
+                {1, 1, 0, 0, 0}};
 
-        printArray(matrix);
+        System.out.println();
+        System.out.println("Задан двумерный массив.");
+        System.out.println("*************************");
+        System.out.println();
+        PrintArray.print(matrix);
+        System.out.println();
 
-        int rowStart = 3;
-        int colStart = 7;
-
-        int kFinish = rowStart * 10 + colStart;
-        rowStart = kFinish / 10;
-        colStart = kFinish % 10;
-        System.out.printf("Финишная точка: %d, Строка: %d, Столбец: %d", kFinish, rowStart, colStart);
-
-
-
+        System.out.println("""
+                Программа реализовывает волновой алгоритм(алгоритм ЛИ).
+                Находит кратчайший путь от стартовой точки до финишной.
+                Координаты точек указывает пользователь.""");
+        System.out.println();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите координаты стартовой точки x: ");
+        int i = scanner.nextInt();
+        System.out.println("Введите координаты стартовой точки y: ");
+        int j = scanner.nextInt();
+        System.out.println("Введите координаты финишной точки x: ");
+        int x = scanner.nextInt();
+        System.out.println("Введите координаты финишной точки y: ");
+        int y = scanner.nextInt();
+        scanner.close();
+        LeeAlgorithm.bfs(matrix, i, j, x, y);
     }
-
 }

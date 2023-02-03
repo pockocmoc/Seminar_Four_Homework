@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         int[][] matrix = {
@@ -8,7 +6,7 @@ public class Main {
                 {1, 1, 1, 0, 1},
                 {0, 0, 0, 0, 1},
                 {1, 1, 1, 0, 1},
-                {1, 1, 0, 0, 0}};
+        };
 
         System.out.println();
         System.out.println("Задан двумерный массив.");
@@ -22,16 +20,14 @@ public class Main {
                 Находит кратчайший путь от стартовой точки до финишной.
                 Координаты точек указывает пользователь.""");
         System.out.println();
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Введите координаты стартовой точки x: ");
-        int i = scanner.nextInt();
+        int i = NumberEntry.numberEntry();
         System.out.println("Введите координаты стартовой точки y: ");
-        int j = scanner.nextInt();
+        int j = NumberEntry.numberEntry();
         System.out.println("Введите координаты финишной точки x: ");
-        int x = scanner.nextInt();
+        int x = NumberEntry.numberEntry();
         System.out.println("Введите координаты финишной точки y: ");
-        int y = scanner.nextInt();
-        scanner.close();
+        int y = NumberEntry.numberEntry();
         LeeAlgorithm.bfs(matrix, i, j, x, y);
     }
 }
